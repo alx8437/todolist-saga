@@ -65,8 +65,7 @@ type GetTasksResponse = {
 
 export const todolistsAPI = {
     getTodolists() {
-        const promise = instance.get<TodolistType[]>('todo-lists');
-        return promise;
+        return instance.get<TodolistType[]>('todo-lists').then(res => res.data);
     },
     createTodolist(title: string) {
         const promise = instance.post<ResponseType<{ item: TodolistType }>>('todo-lists', {title: title});

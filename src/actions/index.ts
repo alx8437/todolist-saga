@@ -2,15 +2,16 @@ import {v1} from "uuid";
 import {
     AddTodolistActionType, ChangeTodolistFilterActionType,
     ChangeTodolistTitleActionType, FilterValuesType,
-    RemoveTodolistActionType
+    RemoveTodolistActionType, SetTodolistsActionTypes
 } from "../state/todolists-reducer";
-import {TaskStatuses} from "../api/todolists-api";
+import {TaskStatuses, TodolistType} from "../api/todolists-api";
 import {
     AddTaskActionType,
     ChangeTaskStatusActionType,
     ChangeTaskTitleActionType,
     RemoveTaskActionType
 } from "../state/tasks-reducer";
+
 
 
 export const removeTodolistAC = (todolistId: string): RemoveTodolistActionType => {
@@ -37,5 +38,17 @@ export const changeTaskStatusAC = (taskId: string, status: TaskStatuses, todolis
 }
 export const changeTaskTitleAC = (taskId: string, title: string, todolistId: string): ChangeTaskTitleActionType => {
     return {type: 'CHANGE-TASK-TITLE', title, todolistId, taskId}
+}
+
+export const setTodolistsAC = (todolists: Array<TodolistType>): SetTodolistsActionTypes => {
+    return {type: 'SET_TODOLISTS', todolists}
+}
+
+export const fetchTodolistsAC = () => {
+    return {type: 'FETCH_TODOLISTS'}
+}
+
+export const fetchTasksAC = () => {
+    return {type: 'FETCH_TASKS'}
 }
 
