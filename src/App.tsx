@@ -18,7 +18,7 @@ import {
     changeTaskStatusAC,
     changeTaskTitleAC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC,
+    changeTodolistTitleAC, fetchTasksAC,
     fetchTodolistsAC,
     removeTaskAC,
     removeTodolistAC

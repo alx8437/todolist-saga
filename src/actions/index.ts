@@ -4,16 +4,16 @@ import {
     ChangeTodolistTitleActionType, FilterValuesType,
     RemoveTodolistActionType, SetTodolistsActionTypes
 } from "../state/todolists-reducer";
-import {TaskStatuses, TodolistType} from "../api/todolists-api";
+import {TaskStatuses, TaskType, TodolistType} from "../api/todolists-api";
 import {
     AddTaskActionType,
     ChangeTaskStatusActionType,
     ChangeTaskTitleActionType,
-    RemoveTaskActionType
+    RemoveTaskActionType, SetTasks
 } from "../state/tasks-reducer";
 
 
-
+//Todolists Action Creators
 export const removeTodolistAC = (todolistId: string): RemoveTodolistActionType => {
     return { type: 'REMOVE-TODOLIST', id: todolistId}
 }
@@ -27,6 +27,15 @@ export const changeTodolistFilterAC = (id: string, filter: FilterValuesType): Ch
     return { type: 'CHANGE-TODOLIST-FILTER', id: id, filter: filter}
 }
 
+export const setTodolistsAC = (todolists: Array<TodolistType>): SetTodolistsActionTypes => {
+    return {type: 'SET_TODOLISTS', todolists}
+}
+
+export const fetchTodolistsAC = () => {
+    return {type: 'FETCH_TODOLISTS'}
+}
+
+//Tasks Action Creators
 export const removeTaskAC = (taskId: string, todolistId: string): RemoveTaskActionType => {
     return {type: 'REMOVE-TASK', taskId: taskId, todolistId: todolistId}
 }
@@ -40,15 +49,12 @@ export const changeTaskTitleAC = (taskId: string, title: string, todolistId: str
     return {type: 'CHANGE-TASK-TITLE', title, todolistId, taskId}
 }
 
-export const setTodolistsAC = (todolists: Array<TodolistType>): SetTodolistsActionTypes => {
-    return {type: 'SET_TODOLISTS', todolists}
+export const setTasksAC = (todolistId: string, tasks: Array<TaskType>): SetTasks => {
+    return {type: "SET_TASKS", todolistId, tasks}
 }
 
-export const fetchTodolistsAC = () => {
-    return {type: 'FETCH_TODOLISTS'}
+export const fetchTasksAC = (todolistId: string) => {
+    return {type: 'FETCH_TASKS', todolistId}
 }
 
-export const fetchTasksAC = () => {
-    return {type: 'FETCH_TASKS'}
-}
 

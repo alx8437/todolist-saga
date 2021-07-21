@@ -80,7 +80,8 @@ export const todolistsAPI = {
         return promise;
     },
     getTasks(todolistId: string) {
-        return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`);
+        debugger
+        return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`).then(res => res.data.items);
     },
     deleteTask(todolistId: string, taskId: string) {
         return instance.delete<ResponseType>(`todo-lists/${todolistId}/tasks/${taskId}`);
