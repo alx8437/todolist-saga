@@ -1,6 +1,6 @@
 import {call, put, takeEvery} from "redux-saga/effects";
 import {todolistsAPI} from "../api/todolists-api";
-import {fetchTasksAC, setTasksAC} from "../actions";
+import {fetchTasksAC, setTasksAC} from "../actions/tasksActions";
 
 
 

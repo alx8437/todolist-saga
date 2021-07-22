@@ -13,16 +13,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
 import {TaskStatuses, TaskType} from './api/todolists-api'
 import {
-    addTaskAC,
-    addTodolistAC,
-    changeTaskStatusAC,
-    changeTaskTitleAC,
+    addTodolistAC, asyncRemoveTodolistAC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC, fetchTasksAC,
+    changeTodolistTitleAC,
     fetchTodolistsAC,
-    removeTaskAC,
-    removeTodolistAC
-} from './actions';
+} from "./actions/todolistActions";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC} from "./actions/tasksActions";
+
 
 
 export type TasksStateType = {
@@ -67,7 +64,7 @@ function App() {
     }, []);
 
     const removeTodolist = useCallback(function (id: string) {
-        const action = removeTodolistAC(id);
+        const action = asyncRemoveTodolistAC(id);
         dispatch(action);
     }, []);
 

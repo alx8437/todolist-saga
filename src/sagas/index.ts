@@ -1,7 +1,7 @@
 import {all} from 'redux-saga/effects'
-import {getTodolistsWatcher} from "./todolistsSaga";
+import {getTodolistsWatcher, removeTodolistWatcher} from "./todolistsSaga";
 import {getTasksWatcher} from "./tasksSaga";
 
 export function* rootWatcher() {
-    yield all([getTodolistsWatcher(), getTasksWatcher()])
+    yield all([getTodolistsWatcher(), getTasksWatcher(), removeTodolistWatcher()])
 }
