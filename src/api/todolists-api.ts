@@ -74,8 +74,7 @@ export const todolistsAPI = {
         return instance.delete<ResponseType>(`todo-lists/${id}`).then(res => res.data.resultCode);
     },
     updateTodolist(id: string, title: string) {
-        const promise = instance.put<ResponseType>(`todo-lists/${id}`, {title: title});
-        return promise;
+        return instance.put<ResponseType>(`todo-lists/${id}`, {title: title}).then(res => res.data.resultCode);
     },
     getTasks(todolistId: string) {
         return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`).then(res => res.data.items);

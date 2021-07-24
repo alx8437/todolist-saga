@@ -24,6 +24,11 @@ export const asyncAddTodolistAC = (title: string) => {
 export const changeTodolistTitleAC = (id: string, title: string): ChangeTodolistTitleActionType => {
     return {type: 'CHANGE-TODOLIST-TITLE', id: id, title: title}
 }
+
+export const asyncChangeTodolistTitle = (id: string, title: string) => {
+    return {type: 'ASYNC_CHANGE_TODOLIST', title, id}
+}
+
 export const changeTodolistFilterAC = (id: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
     return {type: 'CHANGE-TODOLIST-FILTER', id: id, filter: filter}
 }
