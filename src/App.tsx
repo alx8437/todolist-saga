@@ -13,7 +13,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
 import {TaskStatuses, TaskType} from './api/todolists-api'
 import {
-    addTodolistAC, asyncRemoveTodolistAC,
+    addTodolistAC, asyncAddTodolistAC, asyncRemoveTodolistAC,
     changeTodolistFilterAC,
     changeTodolistTitleAC,
     fetchTodolistsAC,
@@ -74,7 +74,7 @@ function App() {
     }, []);
 
     const addTodolist = useCallback((title: string) => {
-        const action = addTodolistAC(title);
+        const action = asyncAddTodolistAC(title);
         dispatch(action);
     }, [dispatch]);
 
